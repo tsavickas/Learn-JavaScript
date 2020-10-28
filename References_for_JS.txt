@@ -1,0 +1,242 @@
+JavaScript is a Dynamic Language
+
+
+// VARIABLES
+
+// declare variable called 'name'
+let name = "Tadas";
+console.log(name);
+
+// Variables:
+// cannot be a reserved keyword
+// should be meaningful
+// cannot start with a number (1name)
+// cannot contain a space or hyphen (-)
+// are case-sensitive
+
+let firstName = "Tadas";
+let lastName = "Savickas";
+
+// PRIMITIVE TYPES - TITLE
+// String, Number, Boolean, undefined, null
+let name = "Tadas"; // String Literal
+let age = 35; // Number Literal
+let isApproved = true; // Boolean Literal
+let firstName;
+let selectedColor = null;
+
+
+// CONSTANTS
+
+const interestRate = 0.3;
+console.log(interestRate);
+
+
+// OBJECTS
+
+// Declare a person object
+
+let person = {
+  name: "Tadas",
+  age: 35,
+};
+// Properties (keys): name, age
+
+// 1st way to access property - Dot Notation
+person.name = "Tadas";
+
+// 2nd way to access property - Bracket Notation
+person["name"] = "Julia";
+
+console.log(person.name);
+
+
+
+// REFERENCE TYPES: Object, Array, Function
+
+// FUNCTIONS - a set of statements that performs a task or calculate a value
+
+// Performing a task
+function greet(name, lastName) {
+  console.log("Hello " + name + " " + lastName);
+}
+
+// Calculating a value
+function square(number) {
+  return number * number;
+}
+
+greet("John", "Smith");
+
+let number = square(2);
+console.log(number);
+
+console.log(square(3));
+
+// "John" is an argument of the greet function. Argument is an actual value we supply to the parameter.
+// name is a parameter of the greet function
+
+// ARRAYS - Data structure that we use to represent a list of items.
+
+let selectedColors = ["red", "blue"];
+selectedColors[2] = "green";
+console.log(selectedColors.length);
+
+
+// ASSIGNMENT OPERATORS
+
+let x = 10;
+
+x++; // equal to:
+x = x + 1;
+
+x += 5; // equal to:
+x = x + 5;
+
+x *= 3; // equal to:
+x = x * 3;
+
+
+// ARITHMETIC OPERATORS
+
+let x = 10;
+let y = 3;
+
+console.log(x + y); // Addition
+console.log(x - y); // Subtraction
+console.log(x * y); // Multiplication
+console.log(x / y); // Division
+console.log(x % y); // Reminder to division
+console.log(x ** y); // Exponentiation
+
+// Increment operator (++)
+console.log(x);
+console.log(++x);
+console.log(x++);
+// Decrement operator (--)
+console.log(x);
+console.log(--x);
+console.log(x--);
+
+
+// EQUALITY OPERATORS
+
+// Strict Equality (Type + Value)
+console.log(1 === 1);
+console.log("1" === 1);
+
+// Lose Equality
+console.log(1 == 1);
+console.log("1" == 1);
+console.log(true == 1);
+
+
+// COMPARISON OPERATORS
+
+let x = 1;
+
+// Relational
+console.log(x > 0);
+console.log(x >= 1);
+console.log(x < 1);
+console.log(x <= 1);
+
+// Equality
+console.log(x === 1);
+console.log(x !== 0);
+
+
+// TERNARY (CONDITIONAL) OPERATOR
+
+// If a customer has more than 100 points,
+// they are a 'gold' customer, otherwise,
+// they are a 'silver' customer.
+
+let points = 110;
+let type = points > 100 ? "gold" : "silver";
+console.log(type)
+
+
+// LOGICAL OPERATORS
+
+// Logical AND (&&)
+// Returns TRUE if both operands are TRUE
+console.log(true && true);
+console.log(false && true);
+console.log(false && false);
+
+let highIncome = true;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome && goodCreditScore;
+console.log(eligibleForLoan);
+
+// Logical OR (||)
+// Returns TRUE if one of the operands is TRUE
+
+let highIncome = false;
+let goodCreditScore = true;
+let eligibleForLoan = highIncome || goodCreditScore;
+console.log(eligibleForLoan);
+
+// NOT (!)
+let highIncome = false;
+let goodCreditScore = false;
+let eligibleForLoan = highIncome || goodCreditScore;
+console.log("Eligible", eligibleForLoan);
+let applicationRefused = !eligibleForLoan;
+console.log("Application Refused", applicationRefused);
+
+
+// LOGICAL OPERATORS WTH NON-BOOLEANS
+
+// Falsy (false) values:
+// - undefined
+// - null
+// - 0
+// - false
+// - ''
+// - NaN
+
+// Anything that is nor Falsy -> Truthy
+
+// Example:
+
+let userColor = undefined;
+let defaultColor = "blue";
+let currentColor = userColor || defaultColor;
+
+console.log(currentColor);
+
+// IF ... ELSE
+
+let hour = 20;
+if (hour >= 6 && hour < 12) console.log("Good morning");
+else if (hour >= 12 && hour < 18) console.log("Good afternoon");
+else console.log("Good evening");
+
+// FOR LOOP
+
+for (let i = 0; i <= 5; i++) {
+  if (i % 2 !== 0) console.log(i);
+}
+
+// WHILE LOOP
+
+let i = 0;
+while (i <= 5) {
+  if (i % 2 !== 0) console.log(i);
+  i++;
+}
+
+// FOR-IN: use to iterate over properties of an object
+
+const person = {
+  name: "Tadas",
+  age: 35,
+};
+
+for (let key in person) console.log(key, person[key]);
+
+// FOR-OF: use to iterate over elements of items in an array
+
+for (let color of colors) console.log(color);
