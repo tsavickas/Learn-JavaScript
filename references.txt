@@ -257,7 +257,7 @@ const circle = {
 
 // FACTORY FUNCTION
 
-function createCircle(radius) {}
+function createCircle(radius) {
   return {
     radius,
     draw() {
@@ -269,3 +269,108 @@ function createCircle(radius) {}
 const circle1 = createCircle(1);
 console.log(circle1);
 
+// CONSTRUCTOR FUNCTION
+
+function ShowAddress(street, city, zipCode) {
+  this.street = street;
+  this.city = city;
+  this.zipCode = zipCode;
+}
+
+const address2 = new ShowAddress("Zaliakalnio", "Kaunas", "45632");
+console.log(address2);
+
+// ADDING ELEMENTS TO ARRAY
+
+const numbers = [2, 3];
+// End
+numbers.push(5, 6);
+// Beggining
+numbers.unshift(1,2);
+// Middle
+numbers.splice(2, 0, 'a', 'b');
+
+console.log(numbers)
+
+// FINDING ELEMENTS IN THE ARRAY
+// Primitive type array
+
+const numbers = [1, 2, 3, 1, 4];
+console.log(numbers).indexOf(1));
+console.log(numbers).lastindexOf(1));
+console.log(numbers).includes(1));
+
+// Reference type array
+
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+];
+
+const course = courses.findIndex((course) => course.name === "b");
+
+console.log(course);
+
+// REMOVE ELEMENTS FROM AN ANRRAY
+
+const numbers = [1, 2, 3, 4];
+
+// End
+numbers.pop();
+// Beginning;
+numbers.shift();
+// Middle;
+numbers.splice();
+
+// EMTYING AN ARRAY
+
+let numbers = [1, 2, 3, 4];
+
+// Solution 1
+numbers = [];
+
+// Solution 2
+numbers.length = 0;
+
+// COMBINING AND SLICING ARRAYS
+
+const first = [1, 2, 3, 4, 5, 6];
+const second = [7, 8, 9];
+
+// option 1
+first.concat(second);
+first.slice(2, 4);
+
+// option 2 - using spread operator
+const combined = [...first, 'a', ...second, 'b']
+const copy = [...combined];
+
+// OTHER USEFUL METHODS FOR ARRAYS
+
+const numbers = [1, 2, -1, 6, 5, 4, 3];
+
+numbers.join();
+numbers.split();
+numbers.sort();
+numbers.reverse();
+numbers.every();
+numbers.some();
+
+const filtered = numbers.filter((number) => number >= 0);
+const items = filtered.map((number) => ({ value: number }));
+
+// Chaining of methods
+
+const items = numbers
+  .filter((number) => number >= 0)
+  .map((number) => ({ value: number }))
+  .filter((obj) => obj.value > 1)
+  .map((obj) => obj.value);
+
+console.log(items);
+
+// Sum of array items
+
+const sum = numbers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue
+);
