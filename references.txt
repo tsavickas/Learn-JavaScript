@@ -7,6 +7,9 @@ JavaScript is a Dynamic Language
 let name = "Tadas";
 console.log(name);
 
+// var => function-scoped
+// ES6 (ES2015): let, const => block-scoped
+
 // Variables:
 // cannot be a reserved keyword
 // should be meaningful
@@ -374,3 +377,85 @@ console.log(items);
 const sum = numbers.reduce(
   (accumulator, currentValue) => accumulator + currentValue
 );
+
+
+// FUNCTIONS
+
+// Function Declaration
+// HOISTING is the process of moving function declaration to the top of the file. It is done automatically by JS engine.
+function walk() {
+  console.log("walk");
+}
+
+walk();
+
+// Anonymous Function Expression
+let run = function () {
+  console.log("run");
+};
+
+let move = run;
+run();
+move();
+
+// Function arguments
+function sum(a, b) {
+  console.log(arguments);
+  return a + b;
+}
+console.log("function sum:", sum(1, 2, 3, 4, 5));
+
+// ==============>>>>
+function sum2() {
+  let total = 0;
+  for (let value of arguments) total += value;
+  return total;
+}
+console.log("function sum2:", sum2(1, 2, 3, 4, 5));
+
+// ==============>>>>
+//  Rest operator (...args)
+function sum3(...args) {
+  return args.reduce((a, b) => a + b);
+}
+console.log("function sum3:", sum3(1, 2, 3, 4, 5));
+
+function discountedSum(discount, ...prices) {
+  const total = prices.reduce((a, b) => a + b);
+  return total * (1 - discount);
+}
+console.log("discounted sum: ", discountedSum(0.2, 35, 55));
+
+// Default values
+function interest(principal, rate, years) {
+  rate = rate || 3.5;
+  years = years || 5;
+
+  return ((principal * rate) / 100) * years;
+}
+// ===>>> the same code according to ES6 (ECMAScript 6):
+function interest(principal, rate = 3.5, years = 5) {
+  return ((principal * rate) / 100) * years;
+}
+console.log(insterest(10000));
+
+// Getters and Setters
+const person = {
+  firstName: "Tadas",
+  lastName: "Savickas",
+  get fullName() {
+    return `${person.firstName} ${person.lastName}`;
+  },
+  set fullName(value) {
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.firstName = parts[1];
+  },
+};
+// getters (get) => access properties
+// setters (set) => change (mutate) properties
+
+// Setter:
+person.fullName = "Vardenis Pavardenis";
+
+console.log(person);
